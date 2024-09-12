@@ -1,0 +1,14 @@
+{
+  "name": "react-native-design-responsive",
+  "version": "1.0.0",
+  "description": "this library for responsive designs",
+  "main": "index.ts",
+  "scripts": {
+    "test": "npm test"
+  },
+  "peerDependencies": {
+     "react-native": ">=0.60"
+  },
+  "author": "Alok Singh",
+  "license": "ISC"
+}
