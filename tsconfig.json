@@ -1,26 +1,14 @@
 {
-    "compilerOptions": {
-      "allowUnreachableCode": false,
-      "allowUnusedLabels": false,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "jsx": "react",
-      "lib": [
-        "esnext"
-      ],
-      "module": "esnext",
-      "moduleResolution": "node",
-      "noFallthroughCasesInSwitch": true,
-      "noImplicitReturns": true,
-      "noImplicitUseStrict": false,
-      "noStrictGenericChecks": false,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "resolveJsonModule": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "target": "esnext"
-    },
-    // "exclude": [],
-    // "include": []
-  }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react-native",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["jest", "react-native"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"], // Include TypeScript files
+  "exclude": ["node_modules"]
+}
