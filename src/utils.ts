@@ -1,4 +1,4 @@
-import { Dimensions, PixelRatio, Platform } from "react-native";
+import { Dimensions, PixelRatio, Platform, StatusBar } from "react-native";
 
 // Get the screen width and height of the device
 export const screenWidth: number = Dimensions.get("window").width;
@@ -17,7 +17,7 @@ const heightScale: number = SCREEN_HEIGHT / DesignHeight;
 export const isTablet = (): boolean => {
   const aspectRatio = SCREEN_HEIGHT / SCREEN_WIDTH;
   const isPad =
-  Platform.OS === "ios" ? SCREEN_WIDTH >= 768 && aspectRatio <= 1.6 : false;
+    Platform.OS === "ios" ? SCREEN_WIDTH >= 768 && aspectRatio <= 1.6 : false;
   return isPad || (SCREEN_WIDTH >= 768 && aspectRatio <= 1.6);
 };
 
@@ -41,4 +41,18 @@ export const vw = (width: number): number => {
 export const vh = (height: number): number => {
   const percent = (height / DesignHeight) * 100;
   return PixelRatio.roundToNearestPixel((screenHeight * percent) / 100);
+};
+
+// Utility function to calculate status bar height for all devices
+export const getStatusBarHeight = () => {
+  if (Platform.OS === "android") {
+    return StatusBar.currentHeight || 0;
+  }
+  if (Platform.OS === "ios") {
+    const { height: windowHeight, width: windowWidth } =
+      Dimensions.get("window");
+    const isIPhoneWithNotch = windowHeight >= 812 || windowWidth >= 812;
+    return isIPhoneWithNotch ? 44 : 20;
+  }
+  return 0;
 };

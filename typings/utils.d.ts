@@ -6,3 +6,4 @@ export declare const isTablet: () => boolean;
 export declare function normalize(size: number): number;
 export declare const vw: (width: number) => number;
 export declare const vh: (height: number) => number;
+export declare const getStatusBarHeight: () => number;

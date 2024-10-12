@@ -42,4 +42,16 @@ describe("Design Responsive Module", () => {
         const expected = react_native_1.PixelRatio.roundToNearestPixel((index_1.screenHeight * percent) / 100);
         expect((0, index_1.vh)(height)).toBe(expected);
     });
+    test("get sttaus bar height for each devices correctly", () => {
+        let batHeight = 0;
+        if (react_native_1.Platform.OS === "android") {
+            batHeight = react_native_1.StatusBar.currentHeight || 0;
+        }
+        if (react_native_1.Platform.OS === "ios") {
+            const { height: windowHeight, width: windowWidth } = react_native_1.Dimensions.get("window");
+            const isIPhoneWithNotch = windowHeight >= 812 || windowWidth >= 812;
+            batHeight = isIPhoneWithNotch ? 44 : 20;
+        }
+        expect((0, index_1.getStatusBarHeight)()).toBe(batHeight);
+    });
 });

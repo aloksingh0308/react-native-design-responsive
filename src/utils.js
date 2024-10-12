@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.vh = exports.vw = exports.isTablet = exports.DesignWidth = exports.DesignHeight = exports.screenHeight = exports.screenWidth = void 0;
+exports.getStatusBarHeight = exports.vh = exports.vw = exports.isTablet = exports.DesignWidth = exports.DesignHeight = exports.screenHeight = exports.screenWidth = void 0;
 exports.normalize = normalize;
 const react_native_1 = require("react-native");
 // Get the screen width and height of the device
@@ -41,3 +41,16 @@ const vh = (height) => {
     return react_native_1.PixelRatio.roundToNearestPixel((exports.screenHeight * percent) / 100);
 };
 exports.vh = vh;
+// Utility function to calculate status bar height for all devices
+const getStatusBarHeight = () => {
+    if (react_native_1.Platform.OS === "android") {
+        return react_native_1.StatusBar.currentHeight || 0;
+    }
+    if (react_native_1.Platform.OS === "ios") {
+        const { height: windowHeight, width: windowWidth } = react_native_1.Dimensions.get("window");
+        const isIPhoneWithNotch = windowHeight >= 812 || windowWidth >= 812;
+        return isIPhoneWithNotch ? 44 : 20;
+    }
+    return 0;
+};
+exports.getStatusBarHeight = getStatusBarHeight;

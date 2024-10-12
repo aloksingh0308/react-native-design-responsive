@@ -1,5 +1,5 @@
 // __tests__/designResponsive.test.ts
-import { Dimensions, PixelRatio, Platform } from "react-native";
+import { Dimensions, PixelRatio, Platform, StatusBar } from "react-native";
 import {
   screenWidth,
   screenHeight,
@@ -9,6 +9,7 @@ import {
   vw,
   vh,
   isTablet,
+  getStatusBarHeight,
 } from "../src/index";
 
 describe("Design Responsive Module", () => {
@@ -64,5 +65,19 @@ describe("Design Responsive Module", () => {
       (screenHeight * percent) / 100
     );
     expect(vh(height)).toBe(expected);
+  });
+
+  test("get sttaus bar height for each devices correctly", () => {
+    let batHeight=0
+    if (Platform.OS === "android") {
+      batHeight= StatusBar.currentHeight || 0;
+    }
+    if (Platform.OS === "ios") {
+      const { height: windowHeight, width: windowWidth } =
+        Dimensions.get("window");
+      const isIPhoneWithNotch = windowHeight >= 812 || windowWidth >= 812;
+      batHeight= isIPhoneWithNotch ? 44 : 20;
+    }
+    expect(getStatusBarHeight()).toBe(batHeight);
   });
 });

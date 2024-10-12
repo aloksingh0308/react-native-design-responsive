@@ -40,15 +40,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: vw(5), // Padding as 5% of the screen width
+    padding: vw(5),
   },
   title: {
-    fontSize: normalize(20), // Scaled font size based on screen size
-    marginBottom: vh(2), // Margin as 2% of the screen height
+    fontSize: normalize(20),
+    marginBottom: vh(2),
   },
   box: {
-    width: vw(50), // Box width is 50% of the screen width
-    height: vh(30), // Box height is 30% of the screen height
+    width: vw(50),
+    height: vh(30),
     backgroundColor: "skyblue",
   },
 });
@@ -66,5 +66,8 @@ Returns the calculated height as a percentage of the device's screen height, sim
 
 normalize(size: number): number
 Normalizes the provided size based on the device's screen size, scaling the size proportionally for both mobile and tablet devices.
+
+getStatusBarHeight(): number
+getStatusBarHeight returns calulated status bar height for every device
 
 ```
