@@ -5,13 +5,6 @@ jest.mock("react-native", () => {
   const ActualReactNative = jest.requireActual("react-native");
 
   return {
-    ...ActualReactNative,
-    PushNotificationIOS: {
-      // Mock the methods you are using or simply return an empty object
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      // Add more methods if necessary
-    },
     Dimensions: {
       get: jest.fn().mockImplementation((dim) => {
         return {

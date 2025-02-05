@@ -7,7 +7,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["jest", "react-native"]
+    "types": ["jest", "react-native"],
+    "typeRoots": ["./node_modules/@types"],
+     "composite": true,
   },
   "include": ["**/*.ts", "**/*.tsx"], // Include TypeScript files
   "exclude": ["node_modules"]

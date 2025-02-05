@@ -1,13 +1,17 @@
 {
   "name": "react-native-design-responsive",
-  "version": "1.2.0",
+  "version": "2.0.1",
   "description": "A React Native library for pixel-perfect design across different screen sizes and devices",
-  "main": "dist/index.js",
-  "types": "index.d.ts",
+  "main": "src/index.js",
+  "types": "./react-native-design-responsive.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"
   },
+  "files": [
+    "src/",
+    "react-native-design-responsive.d.ts"
+  ],
   "dependencies": {
     "react": "*",
     "react-native": "*"
